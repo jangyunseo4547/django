@@ -21,5 +21,12 @@ from first_app import views            #first_app 폴더 내부의 views.py를 �
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
-    path('hello/', views.hello),                    # views라는 파일에 index를 넣겠음.
+    path('hello/', views.hello),  
+    path('lunch/', views.lunch),
+    path('lotto/', views.lotto),          
+    # variable routing : 변수 설정
+    path('profile/<username>/', views.profile),
+    path('cube/<int:number>/', views.cube),
+
+    path('articles/', views.articles),
 ]
