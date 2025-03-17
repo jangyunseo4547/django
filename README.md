@@ -46,17 +46,17 @@ INSTALLED_APPS = [
 
 
 ## 6. MTV 과정 
-- 6.1 
-### 1) (`urls.py`) 불러오기
+### 6.1 
+- 1) (`urls.py`) 불러오기
 ```python
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
     path('hello/', views.hello),  
 ```
-### 2) first_app에 (`templetes`) 폴더 만들기
+- 2) first_app에 (`templetes`) 폴더 만들기
 
-### 3) (`views.py`) 선언하기
+- 3) (`views.py`) 선언하기
 ```python
 def index(request):
     return render(request, 'index.html')
@@ -66,8 +66,8 @@ def hello():
 ```
 - `127.0.0.1:8000/index/`로 접근
 
-- 6.2 
-### (`views.py`)
+### 6.2 
+- (`views.py`)
 ```python
 def hello(request):
     my_name = 'changhee'
@@ -78,12 +78,11 @@ def hello(request):
     return render(request, 'hello.html', context)
 ```
 
-### (`templetes` - `hello.html`)
+- (`templetes` - `hello.html`)
 `<h1>안녕하세요 {{my_name}}입니다.</h1>`
 
-
-### articles.html
-- 6-3
+### 6-3
+- `articles.html`
 ```shell
 <body>
     <h1 style="color: red">articles</h1>
@@ -93,15 +92,16 @@ def hello(request):
 </body>
 ```
  #### 부트 스트랩 활용
-    - head 끝나기 전 : 붙여넣기
-    - body 끝나기 전 : 붙여넣기
+    - head 끝나기 전 : `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">`
 
-- 들여쓰기 
-```shell
-<div class="container"> # div.container + tab
-        <h1 style="color: red">articles</h1>
-        {% for fake_article in fake_articles %}
-            <p>{{fake_article}}</p> # --> <div class="alert alert-light">{{fake_article}}</div> 바꿔주기 
-        {% endfor %} # alt + 위 화살표로 div안에 넣어주기
-    </div>
-```
+    - body 끝나기 전 : `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>`
+
+    - 들여쓰기 
+    ```shell
+    <div class="container"> # div.container + tab
+            <h1 style="color: red">articles</h1>
+            {% for fake_article in fake_articles %}
+                <p>{{fake_article}}</p> # --> <div class="alert alert-light">{{fake_article}}</div> 바꿔주기 
+            {% endfor %} # alt + 위 화살표로 div안에 넣어주기
+        </div>
+    ```
