@@ -5,48 +5,42 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html') # HTML 문서를 가져와서 렌더링
+    return render(request, 'index.html')
 
 def hello(request):
-    my_name = 'changhee'
-
+    my_name = '장윤서'
     context = {
-        'my_name': my_name,
+        'my_name' : my_name
     }
     return render(request, 'hello.html', context)
-#   return render(request, 'hello.html', {'my_name':my_name})
 
 def lunch(request):
-    menu = ['김밥', '김치찌개', '초밥', '파스타', '중식']
-
+    menu = ['한식', '양식', '중식', '일식']
     pick = random.choice(menu)
-
     context = {
-        'pick' : pick,
+        'pick':pick
     }
     return render(request, 'lunch.html', context)
 
 def lotto(request):
-    numbers = random.sample(range(1, 46), 6)
+    numbers = random.sample(range(1,46),6)
 
     context = {
-        'numbers' : numbers,
-    }
-
+        'numbers':numbers
+    } 
     return render(request, 'lotto.html', context)
 
 def profile(request, username):
     context = {
-        'username' : username,
-
+        'username':username
     }
     return render(request, 'profile.html', context)
 
 def cube(request, number):
     result = number ** 3
     context = {
-        'number': number,
-        'result' : result,
+        'number':number,
+        'result':result,
     }
     return render(request, 'cube.html', context)
 
@@ -56,9 +50,8 @@ def articles(request):
 
     for i in range(100):
         fake_articles.append(fake.text())
-    
-    context = {
-        'fake_articles': fake_articles,
-    }
 
+    context = {
+        'fake_articles':fake_articles
+    }
     return render(request, 'articles.html', context)

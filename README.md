@@ -83,12 +83,14 @@ def hello(request):
 
 ### 6-3
 - `articles.html`
+`from faker import Faker` : 테스트 데이터를 생성할 때 사용.
+실제 운영 데이터를 사용하지 않고도 더미 데이터를 만들어서 개발 및 테스트를 진행
 ```shell
 <body>
     <h1 style="color: red">articles</h1>
-    {% for fake_article in fake_articles %} # 파이썬 방식 
+    {% for fake_article in fake_articles %} # # {% %} : if, for 등 임의의 로직을 실행하기 위해 쓰이는 태그 
         <p>{{fake_article}}</p>
-    {% endfor %}  # {% %} : if, for 등 임의의 로직을 실행하기 위해 쓰이는 태그
+    {% endfor %}  # 장고에서 for문을 닫기 위해 사용 
 </body>
 ```
  #### 부트 스트랩 활용
@@ -97,11 +99,11 @@ def hello(request):
     - body 끝나기 전 : `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>`
 
     - 들여쓰기 
-    ```shell
+```shell
     <div class="container"> # div.container + tab
             <h1 style="color: red">articles</h1>
             {% for fake_article in fake_articles %}
                 <p>{{fake_article}}</p> # --> <div class="alert alert-light">{{fake_article}}</div> 바꿔주기 
             {% endfor %} # alt + 위 화살표로 div안에 넣어주기
         </div>
-    ```
+```

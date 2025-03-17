@@ -21,7 +21,7 @@ from first_app import views            #first_app 폴더 내부의 views.py를 �
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
-    path('hello/', views.hello),  
+    path('hello/', views.hello),
     path('lunch/', views.lunch),
     path('lotto/', views.lotto),          
     # variable routing : 변수 설정
