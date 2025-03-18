@@ -107,3 +107,25 @@ def hello(request):
             {% endfor %} # alt + 위 화살표로 div안에 넣어주기
         </div>
 ```
+
+
+### ping, pong
+- ping : 사용자에게 백지를 만들어줌.
+```shell
+ <form action="/pong/"> # form : 사용자에게 입력받는 / http://127.0.0.1:8000/pong/?title=123&content=123 (/pong/으로 바뀜) 
+        <input type="text" name="title">
+        <input type="text" name="content">
+        <input type="submit">
+    </form>  
+```
+- pong : request안에 title, content에 대한 내용이 들어있음.
+- 1) request.GET이 딕셔너리 형태이므로 키값으로 접근
+```shell
+def pong(request): 
+    print(request.GET['title']) 
+    print(request.GET['content'])
+```
+- 2) get()이라는 함수로 접근하기
+```shell
+print(request.GET.get('title'))
+```

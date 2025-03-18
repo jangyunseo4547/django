@@ -27,6 +27,8 @@ urlpatterns = [
     # variable routing : 변수 설정
     path('profile/<username>/', views.profile),
     path('cube/<int:number>/', views.cube),
-
     path('articles/', views.articles),
+
+    path('ping/', views.ping),
+    path('pong/', views.pong),
 ]
